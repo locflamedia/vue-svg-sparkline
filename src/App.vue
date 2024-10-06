@@ -18,7 +18,7 @@
     <h3>Press Enter to apply changes for the inputs</h3>
     <div class="form-container">
       <div>
-        <label>Width:</label>
+        <label>Width</label>
         <input
           type="number"
           v-model="tempWidth"
@@ -26,7 +26,7 @@
         />
       </div>
       <div>
-        <label>Height:</label>
+        <label>Height</label>
         <input
           type="number"
           v-model="tempHeight"
@@ -34,7 +34,7 @@
         />
       </div>
       <div>
-        <label>Stroke:</label>
+        <label>Stroke</label>
         <input
           type="number"
           v-model="tempStroke"
