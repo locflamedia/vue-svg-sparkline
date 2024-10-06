@@ -42,19 +42,19 @@
         />
       </div>
       <div>
-        <label>Stroke Color:</label>
+        <label>Stroke Color</label>
         <input type="color" v-model="strokeColor" />
       </div>
       <div>
-        <label>Fill Color:</label>
+        <label>Fill Color</label>
         <input type="color" v-model="fill" />
       </div>
       <div>
-        <label>Background Color:</label>
+        <label>Background Color</label>
         <input type="color" v-model="backgroundColor" />
       </div>
       <div>
-        <label>Opacity:</label>
+        <label>Opacity</label>
         <input
           type="number"
           v-model="tempOpacity"
@@ -62,7 +62,7 @@
         />
       </div>
       <div>
-        <label>Center Offset:</label>
+        <label>Center Offset</label>
         <input
           type="number"
           v-model="tempCenterOffset"
@@ -70,7 +70,7 @@
         />
       </div>
       <div>
-        <label>Amplitude Factor:</label>
+        <label>Amplitude Factor</label>
         <input
           type="number"
           v-model="tempAmplitudeFactor"

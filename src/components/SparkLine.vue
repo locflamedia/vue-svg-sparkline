@@ -1,5 +1,6 @@
 <template>
   <svg
+    :class="{ 'fade-in': isVisible }"
     :style="`background-color: ${backgroundColor}; margin: 0; padding: 0; box-sizing: border-box;`"
     :width="width"
     :height="height"
@@ -126,3 +127,19 @@ const fillEndPath = computed(() => {
   return `L ${lastX} ${lastY} L 0 ${lastY} Z`
 })
 </script>
+
+<style scoped>
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
