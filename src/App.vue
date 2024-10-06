@@ -23,6 +23,7 @@
           type="number"
           v-model="tempWidth"
           @keyup.enter="width = tempWidth"
+          @blur="width = tempWidth"
         />
       </div>
       <div>
@@ -31,6 +32,8 @@
           type="number"
           v-model="tempHeight"
           @keyup.enter="height = tempHeight"
+          @blur="width = tempHeight"
+
         />
       </div>
       <div>
@@ -38,6 +41,7 @@
         <input
           type="number"
           v-model="tempStroke"
+          @blur="width = tempStroke"
           @keyup.enter="stroke = tempStroke"
         />
       </div>
@@ -58,6 +62,7 @@
         <input
           type="number"
           v-model="tempOpacity"
+          @blur="width = tempOpacity"
           @keyup.enter="opacity = tempOpacity"
         />
       </div>
@@ -66,6 +71,7 @@
         <input
           type="number"
           v-model="tempCenterOffset"
+          @blur="width = tempCenterOffset"
           @keyup.enter="centerOffset = tempCenterOffset"
         />
       </div>
@@ -74,6 +80,7 @@
         <input
           type="number"
           v-model="tempAmplitudeFactor"
+          @blur="width = tempAmplitudeFactor"
           @keyup.enter="amplitudeFactor = tempAmplitudeFactor"
         />
       </div>
@@ -129,8 +136,34 @@ const dataPoints = [
   61844.53865265087, 61991.285312837215, 61943.32059194136, 61903.8513984402,
   62105.88392398104, 61972.5254215129, 61888.434969301474, 61875.00799886143,
 ]
-const width = ref(800)
-const height = ref(400)
+const width = ref(getResponsiveWidth());
+const height = ref(getResponsiveHeight());
+
+function getResponsiveWidth() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth < 450) {
+    return 300;
+  } else if (screenWidth < 768) {
+    return 300;
+  } else if (screenWidth < 1024) {
+    return 600;
+  } else {
+    return 800;
+  }
+}
+
+function getResponsiveHeight() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth < 450) {
+    return 100;
+  } else if (screenWidth < 768) {
+    return 150;
+  } else if (screenWidth < 1024) {
+    return 300;
+  } else {
+    return 400;
+  }
+}
 const stroke = ref(1)
 const strokeColor = ref('#14b8a6')
 const fill = ref('#0d9488')
@@ -169,7 +202,6 @@ watch([width, height, stroke, opacity, centerOffset, amplitudeFactor], () => {
   }
 }
 
-/* Định nghĩa lớp animation */
 .sparkline-changed {
   animation: highlight 0.5s ease-in-out;
 }
